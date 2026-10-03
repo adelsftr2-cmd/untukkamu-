@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Sayangku ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+    radial-gradient(circle at top,#fff5fa 0%,#ffdce9 45%,#ffc5da 100%);
+    color:#4b2635;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =====================================
+   BACKGROUND HEART
+===================================== */
+
+#hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.bg-heart{
+    position:absolute;
+    top:-50px;
+    animation:fall linear infinite;
+    opacity:.7;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =====================================
+   WRAPPER
+===================================== */
+
+.wrapper{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:760px;
+    margin:auto;
+    padding:18px 14px 50px;
+}
+
+/* =====================================
+   CARD
+===================================== */
+
+.card{
+    background:rgba(255,255,255,.93);
+    border:1px solid rgba(255,255,255,.95);
+    border-radius:28px;
+    padding:28px 22px;
+    margin-bottom:20px;
+    box-shadow:0 15px 40px rgba(179,54,100,.16);
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+    text-align:center;
+    padding:45px 22px;
+}
+
+.main-heart{
+    font-size:75px;
+    animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    25%{
+        transform:scale(1.1);
+    }
+
+    40%{
+        transform:scale(1);
+    }
+
+    60%{
+        transform:scale(1.12);
+    }
+}
+
+.hero h1{
+    font-size:35px;
+    margin:15px 0 10px;
+    color:#e73570;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.btn{
+    display:inline-block;
+    border:0;
+    border-radius:999px;
+    padding:14px 24px;
+    margin:6px;
+    background:linear-gradient(135deg,#ff477d,#ff76a2);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 7px 18px rgba(255,71,125,.25);
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn:active{
+    transform:scale(.94);
+}
+
+.btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* =====================================
+   HIDDEN
+===================================== */
+
+.hidden{
+    display:none!important;
+}
+
+/* =====================================
+   TITLE
+===================================== */
+
+.title{
+    text-align:center;
+    color:#df326b;
+    font-size:27px;
+    margin:0 0 12px;
+}
+
+.desc{
+    text-align:center;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* =====================================
+   GAME 1
+===================================== */
+
+.gifts{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.gift{
+    width:85px;
+    height:85px;
+    padding:0;
+    border-radius:20px;
+    border:2px solid #ffc1d5;
+    background:#fff1f6;
+    font-size:38px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.gift:hover{
+    transform:translateY(-5px) rotate(-3deg);
+    background:#ffe1eb;
+}
+
+.gift:active{
+    transform:scale(.9);
+}
+
+/* =====================================
+   GAME 2
+===================================== */
+
+.score-box{
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+    margin:12px 0;
+    color:#dc326b;
+}
+
+.game-area{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    border-radius:22px;
+    border:2px dashed #ff9fbd;
+    background:radial-gradient(circle,#fff 0%,#fff1f6 70%);
+}
+
+.falling-heart{
+    position:absolute;
+    font-size:36px;
+    cursor:pointer;
+    user-select:none;
+    animation:floatHeart .8s infinite alternate;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(8px);
+    }
+}
+
+/* =====================================
+   GAME 3
+===================================== */
+
+.word-area{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.word{
+    background:white;
+    color:#df326b;
+    border:2px solid #ffb4cc;
+    box-shadow:none;
+}
+
+.word.selected{
+    background:#ff4d82;
+    color:white;
+}
+
+.result{
+    min-height:45px;
+    text-align:center;
+    margin-top:18px;
+    font-size:20px;
+    font-weight:bold;
+    color:#df326b;
+}
+
+/* =====================================
+   BIRTHDAY
+===================================== */
+
+.birthday{
+    text-align:center;
+}
+
+.cake{
+    font-size:85px;
+    animation:cakeBounce 1.3s infinite;
+}
+
+@keyframes cakeBounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.birthday h2{
+    color:#df326b;
+    font-size:31px;
+    line-height:1.4;
+}
+
+.birthday-message{
+    background:#fff7fb;
+    border:2px solid #ffc4d8;
+    border-radius:22px;
+    padding:22px;
+    line-height:1.9;
+    font-size:16px;
+    text-align:left;
+}
+
+.birthday-highlight{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#df326b;
+}
+
+/* =====================================
+   SURAT
+===================================== */
+
+.letter{
+    position:relative;
+    background:
+    linear-gradient(
+        135deg,
+        #fffafd,
+        #fff2f7
+    );
+    border:2px solid #ffc5d8;
+    border-radius:22px;
+    padding:24px;
+    line-height:1.9;
+    overflow:hidden;
+}
+
+.letter::before{
+    content:"💗";
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:35px;
+    opacity:.25;
+}
+
+.letter h2{
+    text-align:center;
+    color:#df326b;
+}
+
+.letter p{
+    margin:12px 0;
+}
+
+/* =====================================
+   ROMANTIC EFFECT AREA
+===================================== */
+
+#romanticEffects{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:90;
+    display:none;
+}
+
+/* bunga + hati jatuh */
+
+.romantic-fall{
+    position:absolute;
+    top:-80px;
+    animation:romanticFall linear forwards;
+    filter:drop-shadow(0 3px 4px rgba(255,100,150,.15));
+}
+
+@keyframes romanticFall{
+
+    0%{
+        transform:
+        translateY(-80px)
+        rotate(0deg)
+        scale(.7);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:
+        translateY(50vh)
+        rotate(180deg)
+        scale(1);
+    }
+
+    100%{
+        transform:
+        translateY(115vh)
+        rotate(360deg)
+        scale(.85);
+
+        opacity:0;
+    }
+}
+
+/* sparkle */
+
+.sparkle{
+    position:absolute;
+    animation:sparkleMove 2s ease-in-out forwards;
+}
+
+@keyframes sparkleMove{
+
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    30%{
+        transform:scale(1.4);
+        opacity:1;
+    }
+
+    70%{
+        transform:scale(1);
+        opacity:.8;
+    }
+
+    100%{
+        transform:scale(.2);
+        opacity:0;
+    }
+}
+
+/* =====================================
+   BALON CINTA
+===================================== */
+
+.love-balloon{
+    position:absolute;
+    bottom:-120px;
+    animation:balloonUp linear forwards;
+    filter:drop-shadow(0 7px 5px rgba(200,70,110,.18));
+}
+
+@keyframes balloonUp{
+
+    0%{
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(-5deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:
+        translateY(-55vh)
+        translateX(30px)
+        rotate(6deg);
+    }
+
+    100%{
+        transform:
+        translateY(-120vh)
+        translateX(-25px)
+        rotate(-7deg);
+
+        opacity:0;
+    }
+}
+
+/* =====================================
+   PESAN
+===================================== */
+
+.message-box{
+    text-align:center;
+}
+
+.message-box textarea{
+    width:100%;
+    min-height:150px;
+    resize:vertical;
+    border:2px solid #ffc0d4;
+    border-radius:20px;
+    padding:16px;
+    font-family:Arial,sans-serif;
+    font-size:16px;
+    outline:none;
+    background:#fffafd;
+    color:#4b2635;
+}
+
+.message-box textarea:focus{
+    border-color:#ff5d8d;
+    box-shadow:0 0 0 4px rgba(255,93,141,.1);
+}
+
+.message-note{
+    font-size:13px;
+    color:#8b5268;
+    line-height:1.6;
+}
+
+/* =====================================
+   FINAL
+===================================== */
+
+.final{
+    text-align:center;
+}
+
+.final-gif{
+    font-size:80px;
+    animation:jump 1s infinite;
+}
+
+@keyframes jump{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.question{
+    font-size:28px;
+    color:#df326b;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+.answer-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+/* =====================================
+   MUSIC
+===================================== */
+
+.music-btn{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:120;
+    width:52px;
+    height:52px;
+    padding:0;
+    border-radius:50%;
+    font-size:22px;
+}
+
+/* =====================================
+   POPUP
+===================================== */
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(67,20,39,.62);
+    z-index:200;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.popup-box{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:28px;
+    padding:30px 22px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-title{
+    color:#df326b;
+    font-size:27px;
+    margin-bottom:12px;
+}
+
+.popup-text{
+    line-height:1.7;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+    text-align:center;
+    margin-top:20px;
+    color:#8d5269;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:600px){
+
+    .wrapper{
+        padding:10px 10px 40px;
+    }
+
+    .card{
+        padding:24px 16px;
+        border-radius:23px;
+    }
+
+    .hero{
+        padding:35px 15px;
+    }
+
+    .main-heart{
+        font-size:65px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .title{
+        font-size:24px;
+    }
+
+    .game-area{
+        height:280px;
+    }
+
+    .question{
+        font-size:24px;
+    }
+
+    .birthday h2{
+        font-size:27px;
+    }
+
+    .birthday-message{
+        font-size:15px;
+    }
+
+    .letter{
+        padding:18px;
+        font-size:15px;
+    }
+
+    .love-balloon{
+        font-size:42px !important;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND HEART -->
+<div id="hearts"></div>
+
+<!-- EFEK ROMANTIS SAAT SURAT -->
+<div id="romanticEffects"></div>
+
+
+<div class="wrapper">
+
+<!-- =====================================
+     PEMBUKA
+===================================== -->
+
+<section class="card hero">
+
+    <div class="main-heart">
+        ❤️
+    </div>
+
+    <h1>
+        Hai, Sayang ❤️
+    </h1>
+
+    <p>
+        Aku punya sesuatu untuk kamu...
+    </p>
+
+    <p>
+        Tapi sebelum melihat hadiahnya,
+        kamu harus melewati permainan kecil dulu.
+    </p>
+
+    <br>
+
+    <button class="btn" onclick="startLove()">
+        Mulai Permainan 💕
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     GAME 1
+===================================== -->
+
+<section class="card hidden" id="game1">
+
+    <h2 class="title">
+        Game 1 💝
+    </h2>
+
+    <p class="desc">
+        Di salah satu kotak ada ❤️
+        <br>
+        Pilih satu!
+    </p>
+
+    <div class="gifts">
+
+        <button class="gift" onclick="chooseGift(0)">
+            🎁
+        </button>
+
+        <button class="gift" onclick="chooseGift(1)">
+            🎁
+        </button>
+
+        <button class="gift" onclick="chooseGift(2)">
+            🎁
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     GAME 2
+===================================== -->
+
+<section class="card hidden" id="game2">
+
+    <h2 class="title">
+        Game 2 💕
+    </h2>
+
+    <p class="desc">
+        Tangkap hati sebanyak mungkin!
+    </p>
+
+    <div class="score-box">
+        ❤️ <span id="score">0</span>
+        &nbsp;&nbsp;
+        ⏱️ <span id="time">15</span>
+    </div>
+
+    <div class="game-area" id="gameArea"></div>
+
+    <div style="text-align:center;margin-top:15px;">
+
+        <button
+            class="btn"
+            id="startCatch"
+            onclick="startCatchGame()"
+        >
+            Mulai Game 💗
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     GAME 3
+===================================== -->
+
+<section class="card hidden" id="game3">
+
+    <h2 class="title">
+        Game 3 💞
+    </h2>
+
+    <p class="desc">
+        Susun kata-kata ini menjadi kalimat
+        yang paling manis. ❤️
+    </p>
+
+    <div class="word-area">
+
+        <button
+            class="btn word"
+            onclick="chooseWord(this,'Sayang')"
+        >
+            Sayang
+        </button>
+
+        <button
+            class="btn word"
+            onclick="chooseWord(this,'Kamu')"
+        >
+            Kamu
+        </button>
+
+        <button
+            class="btn word"
+            onclick="chooseWord(this,'Selamanya')"
+        >
+            Selamanya
+        </button>
+
+    </div>
+
+    <div
+        class="result"
+        id="wordResult"
+    ></div>
+
+</section>
+
+
+<!-- =====================================
+     ULANG TAHUN
+===================================== -->
+
+<section
+    class="card birthday hidden"
+    id="birthday"
+>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <h2>
+        Selamat Ulang Tahun,<br>
+        Sayangku ❤️
+    </h2>
+
+    <div class="birthday-message">
+
+        <p>
+            Hari ini adalah hari spesial karena
+            seseorang yang sangat berarti buat aku
+            bertambah usia. ❤️
+        </p>
+
+        <p>
+            Selamat ulang tahun untuk cowok yang
+            berhasil membuat hari-hariku menjadi
+            lebih indah.
+        </p>
+
+        <p>
+            Semoga di usia yang baru ini,
+            semua impian kamu satu per satu
+            bisa terwujud.
+        </p>
+
+        <p>
+            Semoga kamu selalu diberikan kesehatan,
+            kebahagiaan, rezeki yang berlimpah,
+            dan selalu dikelilingi orang-orang
+            yang menyayangi kamu.
+        </p>
+
+        <p>
+            Jangan pernah berhenti menjadi diri kamu
+            yang aku kenal dan aku sayang.
+        </p>
+
+        <p class="birthday-highlight">
+            Happy Birthday, Sayang! 🎂❤️
+        </p>
+
+        <p style="text-align:center;">
+            Aku sayang kamu hari ini,
+            besok, dan seterusnya. 💕
+        </p>
+
+    </div>
+
+    <br>
+
+    <button
+        class="btn"
+        onclick="showLetter()"
+    >
+        Buka Surat Untuk Kamu 💌
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     SURAT
+===================================== -->
+
+<section
+    class="card hidden"
+    id="letter"
+>
+
+    <h2 class="title">
+        Untuk kamu 💌
+    </h2>
+
+    <div class="letter">
+
+        <h2>
+            Untuk Sayangku ❤️
+        </h2>
+
+        <p>
+            Aku cuma mau bilang terima kasih
+            karena kamu sudah hadir di hidupku.
+        </p>
+
+        <p>
+            Terima kasih sudah menjadi seseorang
+            yang selalu membuat hari-hariku terasa
+            lebih berwarna.
+        </p>
+
+        <p>
+            Mungkin aku tidak selalu pandai
+            menunjukkan perasaanku, tapi percayalah
+            kamu sangat berarti untukku.
+        </p>
+
+        <p
+            style="
+            text-align:center;
+            font-size:23px;
+            font-weight:bold;
+            color:#df326b;
+            "
+        >
+            Aku sayang kamu ❤️
+        </p>
+
+        <p>
+            Semoga kita selalu bersama,
+            saling menjaga, saling mengerti,
+            dan tetap menjadi tempat pulang
+            satu sama lain.
+        </p>
+
+        <p style="text-align:center;">
+            🌸 ❤️ 🌸 ❤️ 🌸
+        </p>
+
+    </div>
+
+    <br>
+
+    <div style="text-align:center;">
+
+        <button
+            class="btn"
+            onclick="showMessageBox()"
+        >
+            💌 Tulis Pesan Untuk Aku
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     WHATSAPP
+===================================== -->
+
+<section
+    class="card message-box hidden"
+    id="messageBox"
+>
+
+    <h2 class="title">
+        💌 Ada pesan untuk aku?
+    </h2>
+
+    <p class="desc">
+        Tulis apa pun yang ingin kamu sampaikan.
+        <br>
+        Pesan ini akan dikirim ke WhatsApp aku.
+    </p>
+
+    <textarea
+        id="waMessage"
+        placeholder="Tulis pesan kamu di sini... ❤️"
+    ></textarea>
+
+    <p class="message-note">
+        Setelah menekan tombol di bawah,
+        WhatsApp akan terbuka dengan pesan kamu
+        yang sudah otomatis terisi.
+    </p>
+
+    <button
+        class="btn"
+        onclick="sendWhatsApp()"
+    >
+        Kirim ke WhatsApp ❤️
+    </button>
+
+    <br><br>
+
+    <button
+        class="btn"
+        onclick="showFinal()"
+    >
+        Lanjut ke Kejutan Terakhir 💗
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     FINAL
+===================================== -->
+
+<section
+    class="card final hidden"
+    id="final"
+>
+
+    <div class="final-gif">
+        🥰💗🧸
+    </div>
+
+    <h2 class="title">
+        Satu pertanyaan terakhir...
+    </h2>
+
+    <div class="question">
+        Kamu sayang aku nggak? 🥺❤️
+    </div>
+
+    <div class="answer-buttons">
+
+        <button
+            class="btn"
+            onclick="yesAnswer()"
+        >
+            🤗 Sayang
+        </button>
+
+        <button
+            class="btn"
+            onclick="noAnswer()"
+        >
+            🙂‍↕️ Tidak
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Dibuat khusus untuk seseorang yang spesial ❤️
+</footer>
+
+</div>
+
+
+<!-- =====================================
+     MUSIC BUTTON
+===================================== -->
+
+<button
+    class="btn music-btn"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    🎵
+</button>
+
+
+<!-- =====================================
+     MUSIK MELLOW ONLINE
+===================================== -->
+
+<audio
+    id="music"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b1a9e89.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<!-- =====================================
+     POPUP
+===================================== -->
+
+<div
+    class="popup"
+    id="popup"
+>
+
+    <div class="popup-box">
+
+        <div
+            class="popup-title"
+            id="popupTitle"
+        >
+            ❤️
+        </div>
+
+        <div
+            class="popup-text"
+            id="popupText"
+        ></div>
+
+        <button
+            class="btn"
+            onclick="closePopup()"
+        >
+            Lanjut 💕
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================
+   NOMOR WHATSAPP
+===================================== */
+
+/*
+   GANTI DENGAN NOMOR WHATSAPP KAMU.
+
+   Contoh:
+   081234567890
+
+   menjadi:
+   6281234567890
+
+   Jangan pakai:
+   +
+   spasi
+   tanda -
+*/
+
+const WA_NUMBER = "62895327715278";
+
+
+/* =====================================
+   BACKGROUND HEART
+===================================== */
+
+const heartList = [
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💓",
+    "💞",
+    "💘"
+];
+
+function createHearts(){
+
+    const container =
+        document.getElementById("hearts");
+
+    for(let i=0;i<40;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "bg-heart";
+
+        heart.innerHTML =
+            heartList[
+                Math.floor(
+                    Math.random() *
+                    heartList.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.fontSize =
+            (14+Math.random()*24)+"px";
+
+        heart.style.animationDuration =
+            (5+Math.random()*7)+"s";
+
+        heart.style.animationDelay =
+            Math.random()*8+"s";
+
+        container.appendChild(heart);
+    }
+}
+
+createHearts();
+
+
+/* =====================================
+   POPUP
+===================================== */
+
+function showPopup(title,text){
+
+    document.getElementById("popupTitle")
+        .innerHTML = title;
+
+    document.getElementById("popupText")
+        .innerHTML = text;
+
+    document.getElementById("popup")
+        .style.display = "flex";
+}
+
+function closePopup(){
+
+    document.getElementById("popup")
+        .style.display = "none";
+}
+
+
+/* =====================================
+   SCROLL
+===================================== */
+
+function goTo(id){
+
+    document.getElementById(id)
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+}
+
+
+/* =====================================
+   MUSIK
+===================================== */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+
+function startMusic(){
+
+    music.volume = 0.45;
+
+    music.play()
+    .then(function(){
+
+        musicPlaying = true;
+
+        musicButton.innerHTML =
+            "🔊";
+
+    })
+    .catch(function(){
+
+        musicPlaying = false;
+
+        musicButton.innerHTML =
+            "🎵";
+
+    });
+}
+
+
+function toggleMusic(){
+
+    if(musicPlaying){
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerHTML =
+            "🔇";
+
+    }else{
+
+        music.play()
+        .then(function(){
+
+            musicPlaying = true;
+
+            musicButton.innerHTML =
+                "🔊";
+
+        })
+        .catch(function(){
+
+            showPopup(
+                "🎵 Musik",
+                "Tekan tombol musik lagi untuk memulai musik ❤️"
+            );
+
+        });
+    }
+}
+
+
+/* =====================================
+   MULAI PERMAINAN
+===================================== */
+
+function startLove(){
+
+    document.getElementById("game1")
+        .classList.remove("hidden");
+
+    goTo("game1");
+
+    /*
+       Musik mulai setelah pengguna
+       menekan tombol.
+    */
+
+    startMusic();
+}
+
+
+/* =====================================
+   GAME 1
+===================================== */
+
+let correctGift =
+    Math.floor(Math.random()*3);
+
+let giftFinished = false;
+
+function chooseGift(number){
+
+    if(giftFinished) return;
+
+    if(number === correctGift){
+
+        giftFinished = true;
+
+        showPopup(
+            "🎉 Benar!",
+            "Yeay! Kamu menemukan hati ❤️<br><br>" +
+            "Sekarang lanjut ke Game 2 💕"
+        );
+
+        document.getElementById("game2")
+            .classList.remove("hidden");
+
+        setTimeout(function(){
+
+            goTo("game2");
+
+        },500);
+
+    }else{
+
+        showPopup(
+            "😝 Belum!",
+            "Bukan yang ini hehe 😆<br><br>" +
+            "Coba pilih kotak yang lain ❤️"
+        );
+    }
+}
+
+
+/* =====================================
+   GAME 2
+===================================== */
+
+let score = 0;
+let time = 15;
+let catchTimer = null;
+let playing = false;
+
+function startCatchGame(){
+
+    if(playing) return;
+
+    playing = true;
+
+    score = 0;
+    time = 15;
+
+    document.getElementById("score")
+        .innerText = score;
+
+    document.getElementById("time")
+        .innerText = time;
+
+    document.getElementById("startCatch")
+        .disabled = true;
+
+    document.getElementById("gameArea")
+        .innerHTML = "";
+
+    spawnHeart();
+
+    catchTimer =
+        setInterval(function(){
+
+            time--;
+
+            document.getElementById("time")
+                .innerText = time;
+
+            if(time <= 0){
+
+                finishCatchGame();
+            }
+
+        },1000);
+}
+
+
+function spawnHeart(){
+
+    if(!playing) return;
+
+    const area =
+        document.getElementById("gameArea");
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "falling-heart";
+
+    heart.innerHTML =
+        "❤️";
+
+    const maxX =
+        Math.max(
+            5,
+            area.clientWidth-50
+        );
+
+    const maxY =
+        Math.max(
+            5,
+            area.clientHeight-50
+        );
+
+    heart.style.left =
+        Math.random()*maxX+"px";
+
+    heart.style.top =
+        Math.random()*maxY+"px";
+
+    heart.onclick =
+        function(){
+
+            if(!playing) return;
+
+            score++;
+
+            document.getElementById("score")
+                .innerText = score;
+
+            heart.remove();
+
+            spawnHeart();
+        };
+
+    area.appendChild(heart);
+}
+
+
+function finishCatchGame(){
+
+    clearInterval(catchTimer);
+
+    playing = false;
+
+    document.getElementById("gameArea")
+        .innerHTML = "";
+
+    document.getElementById("startCatch")
+        .disabled = false;
+
+    document.getElementById("game3")
+        .classList.remove("hidden");
+
+    showPopup(
+        "💖 Waktu Habis!",
+        "Kamu berhasil menangkap <b>" +
+        score +
+        "</b> hati! ❤️<br><br>" +
+        "Sekarang lanjut ke Game 3 💞"
+    );
+
+    setTimeout(function(){
+
+        goTo("game3");
+
+    },500);
+}
+
+
+/* =====================================
+   GAME 3
+===================================== */
+
+let selectedWords = [];
+
+function chooseWord(button,word){
+
+    if(selectedWords.includes(word)){
+        return;
+    }
+
+    selectedWords.push(word);
+
+    button.classList.add("selected");
+
+    document.getElementById("wordResult")
+        .innerText =
+        selectedWords.join(" ❤️ ");
+
+    if(selectedWords.length === 3){
+
+        setTimeout(
+            checkWords,
+            600
+        );
+    }
+}
+
+
+function checkWords(){
+
+    const correct =
+        selectedWords[0] === "Sayang" &&
+        selectedWords[1] === "Kamu" &&
+        selectedWords[2] === "Selamanya";
+
+    if(correct){
+
+        document.getElementById("wordResult")
+            .innerHTML =
+            "💖 Sayang kamu selamanya ❤️";
+
+        showPopup(
+            "💞 Benar!",
+            "<b>Sayang kamu selamanya ❤️</b><br><br>" +
+            "Sekarang ada sesuatu yang lebih spesial untuk kamu..."
+        );
+
+        document.getElementById("birthday")
+            .classList.remove("hidden");
+
+        setTimeout(function(){
+
+            goTo("birthday");
+
+        },700);
+
+    }else{
+
+        showPopup(
+            "😆 Ups!",
+            "Kalimatnya belum tepat.<br><br>" +
+            "Coba susun lagi sampai menjadi kalimat yang manis ❤️"
+        );
+
+        setTimeout(
+            resetWords,
+            300
+        );
+    }
+}
+
+
+function resetWords(){
+
+    selectedWords = [];
+
+    document.getElementById("wordResult")
+        .innerText = "";
+
+    document.querySelectorAll(".word")
+        .forEach(function(button){
+
+            button.classList.remove("selected");
+
+        });
+}
+
+
+/* =====================================
+   SURAT + EFEK ROMANTIS
+===================================== */
+
+function showLetter(){
+
+    document.getElementById("letter")
+        .classList.remove("hidden");
+
+    goTo("letter");
+
+    /*
+       Mulai pesta romantis ketika surat dibuka.
+    */
+
+    startRomanticEffects();
+}
+
+
+/* =====================================
+   EFEK ROMANTIS RAMAI
+===================================== */
+
+let romanticInterval = null;
+
+const romanticItems = [
+    "🌸",
+    "🌷",
+    "🌹",
+    "🌺",
+    "💐",
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💞",
+    "✨",
+    "💫"
+];
+
+
+function startRomanticEffects(){
+
+    const container =
+        document.getElementById(
+            "romanticEffects"
+        );
+
+    container.style.display = "block";
+
+    /*
+       Bersihkan efek lama.
+    */
+
+    container.innerHTML = "";
+
+    /*
+       Efek awal langsung ramai.
+    */
+
+    for(let i=0;i<35;i++){
+
+        createRomanticFall(
+            true
+        );
+    }
+
+    for(let i=0;i<18;i++){
+
+        createBalloon(
+            true
+        );
+    }
+
+    for(let i=0;i<25;i++){
+
+        createSparkle();
+    }
+
+    /*
+       Terus menghasilkan efek baru.
+    */
+
+    if(romanticInterval){
+        clearInterval(
+            romanticInterval
+        );
+    }
+
+    romanticInterval =
+        setInterval(function(){
+
+            for(let i=0;i<4;i++){
+
+                createRomanticFall(
+                    false
+                );
+            }
+
+            for(let i=0;i<2;i++){
+
+                createBalloon(
+                    false
+                );
+            }
+
+            for(let i=0;i<3;i++){
+
+                createSparkle();
+            }
+
+        },900);
+}
+
+
+/* =====================================
+   BUNGA + HATI BERGUGURAN
+===================================== */
+
+function createRomanticFall(initial){
+
+    const container =
+        document.getElementById(
+            "romanticEffects"
+        );
+
+    const item =
+        document.createElement("div");
+
+    item.className =
+        "romantic-fall";
+
+    item.innerHTML =
+        romanticItems[
+            Math.floor(
+                Math.random() *
+                romanticItems.length
+            )
+        ];
+
+    item.style.left =
+        Math.random()*100+"%";
+
+    item.style.fontSize =
+        (18+Math.random()*28)+"px";
+
+    item.style.animationDuration =
+        (4+Math.random()*5)+"s";
+
+    item.style.animationDelay =
+        initial
+        ? Math.random()*4+"s"
+        : "0s";
+
+    container.appendChild(item);
+
+    setTimeout(function(){
+
+        item.remove();
+
+    },10000);
+}
+
+
+/* =====================================
+   BALON LOVE
+===================================== */
+
+function createBalloon(initial){
+
+    const container =
+        document.getElementById(
+            "romanticEffects"
+        );
+
+    const balloon =
+        document.createElement("div");
+
+    balloon.className =
+        "love-balloon";
+
+    const balloons = [
+        "🎈❤️",
+        "🎈💗",
+        "🎈💕",
+        "🎈💖",
+        "💗🎈",
+        "❤️🎈"
+    ];
+
+    balloon.innerHTML =
+        balloons[
+            Math.floor(
+                Math.random() *
+                balloons.length
+            )
+        ];
+
+    balloon.style.left =
+        Math.random()*100+"%";
+
+    balloon.style.fontSize =
+        (35+Math.random()*25)+"px";
+
+    balloon.style.animationDuration =
+        (6+Math.random()*5)+"s";
+
+    balloon.style.animationDelay =
+        initial
+        ? Math.random()*4+"s"
+        : "0s";
+
+    container.appendChild(balloon);
+
+    setTimeout(function(){
+
+        balloon.remove();
+
+    },12000);
+}
+
+
+/* =====================================
+   SPARKLE
+===================================== */
+
+function createSparkle(){
+
+    const container =
+        document.getElementById(
+            "romanticEffects"
+        );
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+    sparkle.innerHTML =
+        Math.random() > .5
+        ? "✨"
+        : "💫";
+
+    sparkle.style.left =
+        Math.random()*100+"%";
+
+    sparkle.style.top =
+        Math.random()*100+"%";
+
+    sparkle.style.fontSize =
+        (14+Math.random()*25)+"px";
+
+    container.appendChild(sparkle);
+
+    setTimeout(function(){
+
+        sparkle.remove();
+
+    },2200);
+}
+
+
+/* =====================================
+   PESAN WHATSAPP
+===================================== */
+
+function showMessageBox(){
+
+    document.getElementById("messageBox")
+        .classList.remove("hidden");
+
+    goTo("messageBox");
+}
+
+
+function sendWhatsApp(){
+
+    const message =
+        document.getElementById("waMessage")
+        .value
+        .trim();
+
+    if(message === ""){
+
+        showPopup(
+            "💌 Isi dulu ya",
+            "Tulis pesan kamu untuk aku sebelum mengirim ❤️"
+        );
+
+        return;
+    }
+
+    if(WA_NUMBER.includes("X")){
+
+        showPopup(
+            "⚠️ Nomor belum diatur",
+            "Masukkan nomor WhatsApp kamu "
+            + "pada bagian <b>WA_NUMBER</b> "
+            + "di kode."
+        );
+
+        return;
+    }
+
+    const finalMessage =
+        "💌 Pesan dari website ulang tahun ❤️\n\n"
+        + message;
+
+    const waURL =
+        "https://wa.me/"
+        + WA_NUMBER
+        + "?text="
+        + encodeURIComponent(
+            finalMessage
+        );
+
+    window.open(
+        waURL,
+        "_blank"
+    );
+}
+
+
+/* =====================================
+   FINAL
+===================================== */
+
+function showFinal(){
+
+    document.getElementById("final")
+        .classList.remove("hidden");
+
+    goTo("final");
+
+    /*
+       Tetap berikan sedikit efek romantis
+       ketika masuk ke bagian terakhir.
+    */
+
+    for(let i=0;i<20;i++){
+        createRomanticFall(true);
+    }
+}
+
+
+function yesAnswer(){
+
+    showPopup(
+        "🥰❤️ YEAY!",
+        "Aku tahu kamu sayang aku! ❤️<br><br>" +
+        "Makasih sudah sampai di akhir permainan ini.<br><br>" +
+        "Peluk virtual dulu 🤗💕"
+    );
+
+    for(let i=0;i<20;i++){
+        createBalloon(false);
+    }
+}
+
+
+function noAnswer(){
+
+    showPopup(
+        "🥺 Eits...",
+        "Jangan pilih itu dong 😭❤️<br><br>" +
+        "Coba pilih 🤗 Sayang!"
+    );
+}
+
+
+/* =====================================
+   POPUP KLIK LUAR
+===================================== */
+
+document.getElementById("popup")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closePopup();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
